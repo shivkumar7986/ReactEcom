@@ -62,16 +62,31 @@ const CartReducer = (state, action) => {
       return { ...state, cart: [] };
 
     case "CART_TOTAL_ITEM": {
-      const total_item = state.cart.reduce((acc, curr) => acc + curr.amount, 0);
-      return { ...state, total_item };
+      const total_item = (state.cart || []).reduce(
+        (accumulator, currentItem) => {
+          return accumulator + currentItem.amount;
+        },
+        0
+      );
+
+      return {
+        ...state,
+        total_item,
+      };
     }
 
     case "CART_TOTAL_PRICE": {
-      const total_price = state.cart.reduce(
-        (acc, curr) => acc + curr.price * curr.amount,
+      const total_price = (state.cart || []).reduce(
+        (accumulator, currentItem) => {
+          return accumulator + currentItem.price * currentItem.amount;
+        },
         0
       );
-      return { ...state, total_price };
+
+      return {
+        ...state,
+        total_price,
+      };
     }
 
     default:

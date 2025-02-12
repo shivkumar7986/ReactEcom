@@ -8,7 +8,7 @@ const getLocalCartData = () => {
   try {
     return localCartData ? JSON.parse(localCartData) : [];
   } catch (error) {
-    console.error("Error parsing local cart data:", error);
+    console.error("Error parsing local storage data:", error);
     return [];
   }
 };

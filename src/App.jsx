@@ -14,27 +14,29 @@ import Footer from "./components/Footer";
 const App = () => {
   const theme = {
     colors: {
-      heading: "#3b0d60", // Deep Purple for headings
-      text: "rgba(47, 54, 64, 0.9)", // Slightly muted gray for text
-      white: "#ffffff", // Pure white
-      black: "#121212", // Dark black for contrast
-      helper: "#ff6f61", // Coral Orange for CTA and highlights
-      bg: "#fafafa", // Light neutral background
-      footer_bg: "#2c1e4b", // Rich Purple for footer
-      btn: "#8a4af3", // Vibrant Purple for buttons
-      border: "rgba(138, 74, 243, 0.5)", // Matching border for buttons
-      hr: "#eaeaea", // Soft gray for horizontal lines
+      heading: "#003262",
+      text: "rgba(29 ,29, 29, .8)",
+      white: "#fff",
+      black: " #212529",
+      helper: "#8490ff",
+
+      bg: "#F0F8FF",
+      footer_bg: "#010B13",
+      btn: "#003262",
+      border: "rgba(98, 84, 243, 0.5)",
+      hr: "#F8F4FF",
       gradient:
-        "linear-gradient(90deg, #8a4af3 0%, #ff6f61 100%)", // Gradient from Purple to Coral
+        "linear-gradient(0deg, rgb(132 144 255) 0%, rgb(98 189 252) 100%)",
       shadow:
-        "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px", // Soft shadow for elements
-      shadowSupport: "rgba(0, 0, 0, 0.15) 0px 6px 12px", // Heavier shadow for emphasis
+        "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;",
+      shadowSupport: " rgba(0, 0, 0, 0.16) 0px 1px 4px",
     },
     media: {
       mobile: "768px",
       tab: "998px",
     },
   };
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

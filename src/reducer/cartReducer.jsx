@@ -2,6 +2,13 @@ const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
       const { id, color, amount, product } = action.payload;
+
+      // Ensure state.cart is an array
+      if (!Array.isArray(state.cart)) {
+        console.error("Invalid cart state:", state.cart);
+        return state;
+      }
+
       const existingProduct = state.cart.find(
         (curItem) => curItem.id === id + color
       );
@@ -68,7 +75,6 @@ const CartReducer = (state, action) => {
         },
         0
       );
-
       return {
         ...state,
         total_item,
@@ -82,7 +88,6 @@ const CartReducer = (state, action) => {
         },
         0
       );
-
       return {
         ...state,
         total_price,

@@ -6,7 +6,12 @@ const CartContext = createContext();
 const getLocalCartData = () => {
   const localCartData = localStorage.getItem("reactCart");
   try {
-    return localCartData ? JSON.parse(localCartData) : [];
+    const parsedData = localCartData ? JSON.parse(localCartData) : [];
+    if (!Array.isArray(parsedData)) {
+      console.warn("Invalid cart data in localStorage. Resetting to empty array.");
+      return [];
+    }
+    return parsedData;
   } catch (error) {
     console.error("Error parsing local storage data:", error);
     return [];
@@ -46,7 +51,12 @@ export const CartContextProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: "CART_TOTAL_ITEM" });
     dispatch({ type: "CART_TOTAL_PRICE" });
-    localStorage.setItem("reactCart", JSON.stringify(state.cart));
+
+    if (Array.isArray(state.cart)) {
+      localStorage.setItem("reactCart", JSON.stringify(state.cart));
+    } else {
+      console.error("Invalid cart state. Not saving to localStorage:", state.cart);
+    }
   }, [state.cart]);
 
   return (

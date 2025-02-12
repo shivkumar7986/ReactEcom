@@ -7,7 +7,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./styles/globalStyle";
+import { GlobalStyle } from "./styles/GlobalStyle.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
